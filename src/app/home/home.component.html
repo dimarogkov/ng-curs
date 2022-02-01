@@ -1,0 +1,30 @@
+<section class="container">
+    <h2>Home Page</h2>
+
+    <div class="info-block">
+        <a [routerLink]="['/', 'info']">Show Info</a>
+        <router-outlet></router-outlet>
+    </div>
+
+    <hr>
+
+    <button (click)="goToPipesPage()">Go to Pipes</button>
+
+    <div class="card">
+        <h2>{{counterServices.counter}}</h2>
+        <button (click)="counterServices.plus()">+</button>
+        <button (click)="counterServices.minus()">-</button>
+    </div>
+
+    <hr>
+
+    <app-post-form [postsLenth]="posts.length" (onAdd)="addPost($event)"></app-post-form>
+
+    <app-post *ngFor="let p of posts" [post]="p" (onRemove)="removePost($event)">
+        <small *ngIf="p.text.length > 10 else short">Big Post</small>
+        <ng-template #short>
+            <small>Small Post</small>
+        </ng-template>
+    </app-post>
+
+</section>

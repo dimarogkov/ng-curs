@@ -1,0 +1,63 @@
+p {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+input {
+    display: block;
+    width: 100%;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+}
+.card {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+.card:last-child {
+    margin-bottom: 0;
+}
+.task {
+    position: relative;
+    display: inline-block;
+}
+.task::before {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s;
+}
+.task.completed::before {
+    width: 100%;
+}
+.btn {
+    display: inline-block;
+    background: #333333;
+    color: #fff;
+    padding: 0.4rem 1.3rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    transition: opacity 0.2s ease-in;
+    outline: none;
+}
+.btn.btn-danger {
+    background-color: darkred;
+}
+.btn[disabled] {
+    pointer-events: none;
+    opacity: 0.8;
+}
+.btn:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,29 @@
+<section class="container">
+    <h2>Http Client</h2>
+
+    <div class="card">
+        <div class="form-control">
+            <input type="text" placeholder="Name" [(ngModel)]="todoInput">
+        </div>
+        <button class="btn" (click)="addTodo()">Добавить</button>
+        <button class="btn" (click)="loadTodos()">Загрузить</button>
+    </div>
+    
+    <div *ngIf="!loader else loaderBlock">
+        <div class="card" *ngFor="let todo of todos">
+            <p>
+                <span class="task" [class.completed]="todo.completed">{{todo.title | titlecase}}</span>
+                <span>
+                    <button class="btn btn-danger" (click)="removeTodo(todo.id)">Удалить</button>
+                    <button class="btn" [disabled]="todo.completed" (click)="completeTodo(todo.id)">Завершить</button>
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <ng-template #loaderBlock>
+        <h2>Loading ...</h2>
+    </ng-template>
+</section>
+
+<hr>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ng-curs"
+    }
+  },
+  "defaultProject": "ng-curs",
+  "cli": {
+    "analytics": "4eee3d73-9bdd-4f33-8e2c-550be29d7584"
+  }
 }
